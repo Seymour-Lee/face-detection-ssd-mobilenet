@@ -103,3 +103,15 @@ ENV/
 *.mp4
 *.avi
 *.pb
+
+data/train.zip
+data/val.zip
+data/WIDER_train/*
+data/WIDER_val/*
+data/tf_wider_val/*
+data/tf_wider_train/*
+data/train.record
+model_output/*
+data/val.record
+data/ssd_mobilenet_v1_coco_11_06_2017/*
+data/ssd_mobilenet_v1_coco_11_06_2017.tar*
