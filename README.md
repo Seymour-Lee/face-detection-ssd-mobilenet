@@ -3,6 +3,8 @@ face-detection-ssd-mobilenet-tensorflow
 
 Please install Tensorflow Object Detection API first:
 https://github.com/tensorflow/models/tree/master/research/object_detection
+remember to export PYTHONPATH in .profile like:
+export PYTHONPATH=$PYTHONPATH:/Users/miaozou/Documents/projects/models/research:/Users/miaozou/Documents/projects/models/research/slim
 
 ## Prepare
 python 1_download_data.py
