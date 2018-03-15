@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 import requests
 import os
 import shutil
@@ -81,18 +79,6 @@ if os.path.exists(os.path.join(models_path,"WIDER_val")) == False:
         zip_ref.extractall(models_path)
 
 print("files unziped")
-
-
-
-
-
-
-
-
-
-
-
-
 
 # downloading from: https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md
 url = 'http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v1_coco_11_06_2017.tar.gz'

@@ -1,11 +1,3 @@
-
-
-
-"""
-This script crawls over 9263 training images and 1873 items
-On my Macbook pro this takes: 4 minutes
-
-"""
 import cv2
 import os
 import numpy as np
@@ -23,7 +15,6 @@ cnt = 0
 hog = cv2.HOGDescriptor((80, 80), (16, 16), (8,8), (8,8), 9)
 # data = []
 # label = []
-
 
 def newXMLPASCALfile(imageheight, imagewidth, path, basename):
     # print(filename)
@@ -60,9 +51,6 @@ def appendXMLPASCAL(curr_et_object,x1, y1, w, h, filename):
     filename = filename.strip().replace(".jpg",".xml")
     curr_et_object.write(filename)
     return curr_et_object
-
-
-
 
 def readAndWrite(bbx_gttxtPath):
     cnt = 0
