@@ -41,21 +41,21 @@ python detect_face.py
 
 
 # How to run the MNIST-TensorFlow Serving Demo
-generate mnist moodel, according to the TensorFlow Serving Basic Tutorial:
-https://github.com/tensorflow/serving/blob/master/tensorflow_serving/g3doc/serving_basic.md
+generate mnist moodel, according to the TensorFlow Serving Basic Tutorial:    
+https://github.com/tensorflow/serving/blob/master/tensorflow_serving/g3doc/serving_basic.md    
 
-run the server:
-cd xxxxxxxx/serving
-bazel-bin/tensorflow_serving/model_servers/tensorflow_model_server --port=9000 --model_name=mnist --model_base_path=/tmp/mnist_model/
+run the server:    
+cd xxxxxxxx/serving    
+bazel-bin/tensorflow_serving/model_servers/tensorflow_model_server --port=9000 --model_name=mnist --model_base_path=/tmp/mnist_model/    
 
-generate tensorflow type files:
-cd xxxxxxxx/tensorflow-detection-ssd-mobilenet
-./generate_proto_files.sh
+generate tensorflow type files:    
+cd xxxxxxxx/tensorflow-detection-ssd-mobilenet    
+./generate_proto_files.sh    
 
 build and run:
-cd xxxxxxxx/tensorflow-detection-ssd-mobilenet
-go build
-./tensorflow-detection-ssd-mobilenet
+cd xxxxxxxx/tensorflow-detection-ssd-mobilenet    
+go build    
+./tensorflow-detection-ssd-mobilenet    
 
 
 
