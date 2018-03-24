@@ -52,7 +52,7 @@ generate tensorflow type files:
 cd xxxxxxxx/tensorflow-detection-ssd-mobilenet    
 ./generate_proto_files.sh    
 
-build and run:
+build and run:    
 cd xxxxxxxx/tensorflow-detection-ssd-mobilenet    
 go build    
 ./tensorflow-detection-ssd-mobilenet    
