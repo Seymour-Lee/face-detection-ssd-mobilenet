@@ -115,3 +115,6 @@ model_output/*
 data/val.record
 data/ssd_mobilenet_v1_coco_11_06_2017/*
 data/ssd_mobilenet_v1_coco_11_06_2017.tar*
+
+checkpoints_dir
+output_model
