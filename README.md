@@ -21,17 +21,17 @@ python 4_generate_tfrecord.py --images_path=data/tf_wider_val/images --csv_input
 Read the comments and modify the config information in ssd_mobilenet_v1_face.config
 
 ## Train
-python /Users/miaozou/Documents/projects/models/research/object_detection/train.py --logtostderr --pipeline_config_path=ssd_mobilenet_v1_face.config  --train_dir=model_output
+python /Users/miaozou/Documents/projects/models/research/object_detection/train.py --logtostderr --pipeline_config_path=ssd_mobilenet_v1_face.config  --train_dir=checkpoints_dir
 
 
 
 ## Export Model
-python /Users/miaozou/Documents/projects/models/research/object_detection/export_inference_graph.py --input_type image_tensor --pipeline_config_path ssd_mobilenet_v1_face.config --trained_checkpoint_prefix model_output/model.ckpt-200 --output_directory model/
+python /Users/miaozou/Documents/projects/models/research/object_detection/export_inference_graph.py --input_type image_tensor --pipeline_config_path ssd_mobilenet_v1_face.config --trained_checkpoint_prefix checkpoints_dir/model.ckpt-200 --output_directory output_model/
 
-Please modify the name of trained_checkpoint_prefix: model_output/model.ckpt-xxx, xxx is the num_step in config file
+Please modify the name of trained_checkpoint_prefix: checkpoints_dir/model.ckpt-xxx, xxx is the num_step in config file
 
 ## Eval
-python /Users/miaozou/Documents/projects/models/research/object_detection/eval.py --logtostderr --pipeline_config_path=ssd_mobilenet_v1_face.config  --checkpoint_dir=model_output --eval_dir=eval
+python /Users/miaozou/Documents/projects/models/research/object_detection/eval.py --logtostderr --pipeline_config_path=ssd_mobilenet_v1_face.config  --checkpoint_dir=checkpoints_dir --eval_dir=eval
 
 
 ## Run
