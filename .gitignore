@@ -120,5 +120,5 @@ checkpoints_dir
 output_model
 face-detection-ssd-mobilenet
 
-tensorflow
-tensorflow_serving
+/tensorflow
+/tensorflow_serving
