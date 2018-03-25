@@ -14,7 +14,7 @@ import (
 
 	framework "tensorflow/core/framework"
 	pb "tensorflow_serving"
-	//tf "github.com/tensorflow/tensorflow/tensorflow/go"
+	tf "github.com/tensorflow/tensorflow/tensorflow/go"
 	google_protobuf "github.com/golang/protobuf/ptypes/wrappers"
 	// "go.uber.org/ratelimit"
 	// "golang.org/x/net/context"
@@ -91,15 +91,17 @@ func main() {
 	// }
 	// log.Println(img.At(10, 10).RGBA())
 
-	// tensor, err := tf.NewTensor(img4D)
-	// if err != nil {
-	// 	log.Fatalln("Cannot read image file")
-	// }
+	tensor, err := tf.NewTensor(img4D)
+	if err != nil {
+		log.Fatalln("Cannot read image file")
+	}
+	log.Println(tensor)
 
-	// tensorString, ok := tensor.Value().(string)
+	// tensor32, ok := tensor.Value().([][][][]uint8)
 	// if !ok {
 	// 	log.Fatalln("Cannot type assert tensor value to string")
 	// }
+	// log.Println(tensor32)
 
 	request := &pb.PredictRequest{
 		ModelSpec: &pb.ModelSpec{
@@ -117,9 +119,18 @@ func main() {
 						&framework.TensorShapeProto_Dim{
 							Size: int64(1),
 						},
+						&framework.TensorShapeProto_Dim{
+							Size: int64(1366),
+						},
+						&framework.TensorShapeProto_Dim{
+							Size: int64(1024),
+						},
+						&framework.TensorShapeProto_Dim{
+							Size: int64(3),
+						},
 					},
 				},
-				IntVal: []int32{1},
+				IntVal: []int32{1}, //This is not right
 			},
 		},
 	}
