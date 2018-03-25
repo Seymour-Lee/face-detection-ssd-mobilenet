@@ -13,8 +13,8 @@ from utils import label_map_util
 from utils import visualization_utils_color as vis_util
 
 # Path to frozen detection graph. This is the actual model that is used for the object detection.
-# PATH_TO_CKPT = './output_model/frozen_inference_graph.pb'
-PATH_TO_CKPT = './output_model/1/saved_model.pb'
+PATH_TO_CKPT = './output_model/frozen_inference_graph.pb'
+# PATH_TO_CKPT = './output_model/1/saved_model.pb'
 
 # List of the strings that is used to add correct label for each box.
 PATH_TO_LABELS = './protos/face_label_map.pbtxt'
@@ -51,13 +51,18 @@ class TensoflowFaceDector(object):
         """image: bgr image
         return (boxes, scores, classes, num_detections)
         """
-
+        
         image_np = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
         # the array based representation of the image will be used later in order to prepare the
         # result image with boxes and labels on it.
         # Expand dimensions since the model expects images to have shape: [1, None, None, 3]
         image_np_expanded = np.expand_dims(image_np, axis=0)
+        print(len(image_np_expanded))
+        print(len(image_np_expanded[0]))
+        print(len(image_np_expanded[0][0]))
+        print(len(image_np_expanded[0][0][0]))
+
         image_tensor = self.detection_graph.get_tensor_by_name('image_tensor:0')
         # Each box represents a part of the image where a particular object was detected.
         boxes = self.detection_graph.get_tensor_by_name('detection_boxes:0')
