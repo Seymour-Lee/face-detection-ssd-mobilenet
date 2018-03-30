@@ -5,7 +5,7 @@ import (
 	"flag"
 	// "io/ioutil"
 	"log"
-	"reflect"
+	//"reflect"
 	// "os"
 	// "path/filepath"
 	// "image"
@@ -79,8 +79,6 @@ func main() {
 	img4D := [][][][]uint8 {imgMatrix }
 //	var img4D [][][][]uint8
 //	img4D = img4D.append(imgMatrix)
-	log.Println(reflect.TypeOf(img4D))
-	log.Println(img4D[0][0][0])
 	// file, err := os.Open(imgPath)
 	// if err != nil {
 	// 	log.Fatalln(err)
@@ -102,6 +100,17 @@ func main() {
 	// 	log.Fatalln("Cannot type assert tensor value to string")
 	// }
 	// log.Println(tensor32)
+	imgVal := []int32{}
+	for i := 0; i < len(img4D); i++	{
+		for j := 0; j < len(img4D[i]); j++{
+			for k := 0; k < len(img4D[i][j]); k++{
+				for l := 0; l < len(img4D[i][j][k]); l++{
+					imgVal = append(imgVal, int32(img4D[i][j][k][l]))
+					//imgVal = imgVal.append(img4D[i][j][k][l])
+				}
+			}
+		}
+	}
 
 	request := &pb.PredictRequest{
 		ModelSpec: &pb.ModelSpec{
@@ -130,7 +139,7 @@ func main() {
 						},
 					},
 				},
-				IntVal: []int32{1}, //This is not right
+				IntVal: imgVal, //This is not right
 			},
 		},
 	}
